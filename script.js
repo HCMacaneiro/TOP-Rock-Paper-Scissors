@@ -1,5 +1,7 @@
+function playGame() {
 let humanScore = 0;
 let computerScore = 0;
+
 
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * 10 / 4);
@@ -17,6 +19,7 @@ function getComputerChoice() {
     }
     return choice;
 }
+
 
 function getHumanChoice() {
     let choice = prompt("Choose: Rock, Paper or Scissors");
@@ -47,8 +50,21 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+for (i = 0; i < 5; i++) {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    playRound(humanSelection, computerSelection);
+}
 
+if (humanScore > computerScore) {
+    console.log(`You Win! You won ${humanScore} of 5 rounds`);
+}
+else if (computerScore > humanScore) {
+    console.log(`You Lose! You lost ${computerScore} of 5 rounds`);
+}
+else {
+    console.log("Draw!");
+}
+}
 
-playRound(humanSelection, computerSelection);
+playGame();
