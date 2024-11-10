@@ -47,6 +47,14 @@ function playRound(humanChoice, computerChoice) {
         console.log("You Win! Rock beats Scissors");
         humanScore++;
     }
+    else if (humanChoice.toLowerCase() == "paper" && computerChoice.toLowerCase() == "scissors") {
+        console.log("You Lose! Scissors beats Paper");
+        computerScore++;
+    }
+    else if (humanChoice.toLowerCase() == "scissors" && computerChoice.toLowerCase() == "paper") {
+        console.log("You Win! Scissors beats Paper");
+        humanScore++;
+    }
 }
 
 
