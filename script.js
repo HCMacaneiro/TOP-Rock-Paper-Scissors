@@ -2,6 +2,14 @@ function playGame() {
 let humanScore = 0;
 let computerScore = 0;
 
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+    button.addEventListener("click", (e) => {
+       const choice = e.target.innerText;
+       playRound(choice, getComputerChoice());
+    })
+})
 
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * 10 / 4);
@@ -19,13 +27,6 @@ function getComputerChoice() {
     }
     return choice;
 }
-
-
-function getHumanChoice() {
-    let choice = prompt("Choose: Rock, Paper or Scissors");
-    return choice;
-}
-
 
 function playRound(humanChoice, computerChoice) {
     if (humanChoice.toLowerCase() == computerChoice.toLowerCase()) {
@@ -58,11 +59,11 @@ function playRound(humanChoice, computerChoice) {
 }
 
 
-for (i = 0; i < 5; i++) {
+/*for (i = 0; i < 5; i++) {
     let humanSelection = getHumanChoice();
     let computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
-}
+}*/
 
 if (humanScore > computerScore) {
     console.log(`You Win! You won ${humanScore} of 5 rounds`);
