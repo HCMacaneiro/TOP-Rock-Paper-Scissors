@@ -2,7 +2,9 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
+
     const buttons = document.querySelectorAll("button");
+
 
     buttons.forEach(button => {
         button.addEventListener("click", (e) => {
@@ -41,6 +43,16 @@ function playGame() {
 
 
     function playRound(humanChoice, computerChoice) {
+        if (humanScore === 5 || computerScore === 5) {
+            if (humanScore > computerScore) {
+                resultPara.innerText = `You Win! You won ${humanScore} rounds first!`;
+                return 0;
+            }
+            else if (computerScore > humanScore) {
+                resultPara.innerText = `You Lose! You lost ${computerScore} rounds first!`;
+                return 0;
+            }
+        }
         if (humanChoice.toLowerCase() == computerChoice.toLowerCase()) {
             resultPara.innerText = `Draw! ${humanChoice} is equal to ${computerChoice}`;
         }
@@ -75,23 +87,6 @@ function playGame() {
             humanScoreH2.innerText = `Your Score: ${humanScore}`;
         }
         resultDiv.appendChild(resultPara);
-    }
-
-
-    /*for (i = 0; i < 5; i++) {
-        let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }*/
-
-    if (humanScore > computerScore) {
-        resultPara.innerText = `You Win! You won ${humanScore} of 5 rounds`;
-    }
-    else if (computerScore > humanScore) {
-        resultPara.innerText = `You Lose! You lost ${computerScore} of 5 rounds`;
-    }
-    else {
-        resultPara.innerText = "Draw!";
     }
 }
 
